@@ -12,6 +12,7 @@ __Kommentare__:
 __#weaher.js__
 
 __// Pinia Store für Wetterdaten__
+
 export const useWeatherStore = defineStore('weather', {
   state: () => ({
     city: '',
@@ -84,36 +85,46 @@ async fetchWeather() {
 __#index.vue__
 
 __//Importieren Sie die erforderlichen Funktionen aus Vue und Nuxt__
+
 import { ref, onMounted } from 'vue'
 import { useWeatherStore } from '~/stores/weather'
 import { useAsyncData } from '#app'
 
 __//Initialisiere den Wetterspeicher__
+
 const store = useWeatherStore()
 
 __// Variablen erstellen, um die Stadt, die Wetterdaten, die URL des Wettersymbols und den Fehler zu speichern__
+
 const city = ref('')
 const weather = ref(null)
 const weatherIconUrl = ref('')
 const error = ref(null)
 
 __// Asynchrone Funktion zum Abrufen von Wetterdaten__
+
 const fetchWeather = async () => {
 
   __//Wetterdaten anfordern aus dem Speicher __
   await store.fetchWeather(city.value)
 
   __// Aktualisieren lokale reaktive Variablen mit Daten aus dem Speicher__
+  
     weather.value = store.weather
   weatherIconUrl.value = store.weatherIconUrl
   error.value = store.error
 }
 
 __//OnMounted-Hook zum Ausführen von Code, wenn die Komponente gemountet wird__
+
 onMounted(() => {
+
   __// Laden Sie die neuesten Wetterdaten aus dem Speicher__
+  
   store.loadLastCityWeather()
+  
   __// Wenn Stadtdaten gespeichert sind, aktualisieren Sie lokale reaktive Variablen__
+  
   if (store.city) {
     city.value = store.city
     weather.value = store.weather
@@ -122,6 +133,7 @@ onMounted(() => {
 })
 
 __// Verwenden Sie useAsyncData, um beim Rendern des Servers Wetterdaten asynchron zu bekommen__
+
 const { data } = await useAsyncData('weather', () => store.fetchWeather(city.value))
 </script>
 
