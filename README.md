@@ -1,75 +1,18 @@
-# Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<img src="assets/wetter.jpg" width=200 height=200>
+<br>
 
-## Setup
+# Das Wetter App
 
-Make sure to install the dependencies:
+Das Wetter App - die Anwendung, die das aktuelle Wetter anzeigt.
+__Nuxt3__ wurde zum Schreiben des Projekts verwendet.
+__API__  Diese App verwendet die OpenWeatherMap-API, um Wetterdaten abzurufen: https://openweathermap.org/current 
+Verwendet __Pinia__ auch für die Staatsverwaltung.
+Responsive Design mit __Bootstrap__.
 
-```bash
-# npm
-npm install
+<br>
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+__ Eigenschaften__
+* Suchen Sie nach dem aktuellen Wetter nach Stadt.
+* Zeigen Sie Temperatur, Wetterbedingungen und ein Symbol an, das das Wetter darstellt.
+* Speichern Sie die zuletzt gesuchte Stadt und Wetterdaten.
